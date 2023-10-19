@@ -99,3 +99,6 @@ dpg.show_viewport()
 dpg.start_dearpygui()
 dpg.destroy_context()
 ```
+***
+### ScreenShot/ Скриншот
+![Alt text](https://github.com/chubinmax/dearpygui_bug/blob/main/screen_shot.png?raw=true "ScreenShot")
