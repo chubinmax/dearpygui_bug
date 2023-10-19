@@ -1,12 +1,27 @@
-# This demo show some bugs with russian fonts in DearPyGUI framework
-# times.ttf with cyrillic alphabet copied from ordinary Windows/fonts folder only for example.
-# All dialogs in example file used russain language
+##Known dearpygui bugs with cirillyc font and encoding
+This demo show some bugs with russian fonts in DearPyGUI framework
+times.ttf with cyrillic alphabet copied from ordinary Windows/fonts folder only for example.
+All dialogs in example file used russain language
 
-# Этот демострационный ример показывает некоторые проблемы с русскими шрифтами и кодировкой в DearPyGUI
-# шрифт times.ttf был скопирован из папки Windows/fonts для примера так как содержит русские шрифты
-# Все диалоги в примере на русском
+| Widget                  | Bug description                                       | Importance |
+|-------------------------|-------------------------------------------------------|------------|
+| File&Directory Selector | Do not open folder with cirillyc symbols in name      | Critical   |
+| viewport.title          | AbraKadabra then title with cyrillyc symbols          | Low        |
 
-`python {# пример демонстрирующий проблемы dearpygui при работе с кириллицей
+***
+##Обнаруженные ошибки dearpygui при работе с кириллицей 
+Этот демострационный пример показывает некоторые проблемы с русскими шрифтами и кодировкой в DearPyGUI
+шрифт times.ttf был скопирован из папки Windows/fonts для примера так как содержит русские шрифты
+Все диалоги в примере на русском
+
+| Имя компонента          | Описание проблемы                                     | Значимость |
+|-------------------------|-------------------------------------------------------|------------|
+| File&Directory Selector | Не открывает папки если в названии кириллица          | Critical   |
+| viewport.title          | Название окна нечитаемо при использовании кариллицы   | Low        |
+
+***
+```python 
+# пример демонстрирующий проблемы dearpygui при работе с кириллицей
 
 import dearpygui.dearpygui as dpg
 import os
@@ -82,4 +97,5 @@ dpg.create_viewport(title = 'Demo cirrilyc trouble in File&Dir selector', width 
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.start_dearpygui()
-dpg.destroy_context()}`
+dpg.destroy_context()
+```
