@@ -5,7 +5,7 @@ All dialogs in example file used russain language
 
 | Widget                  | Bug description                                       | Importance |
 |-------------------------|-------------------------------------------------------|------------|
-| File&Directory Selector | Do not open folder with cirillyc symbols in name      | Critical   |
+| File&Directory Selector | Do not open folder with cirillyc symbols in name      | __Critical__   |
 | viewport.title          | AbraKadabra then title with cyrillyc symbols          | Low        |
 
 ***
@@ -14,10 +14,10 @@ All dialogs in example file used russain language
 шрифт times.ttf был скопирован из папки Windows/fonts для примера так как содержит русские шрифты
 Все диалоги в примере на русском
 
-| Имя компонента          | Описание проблемы                                     | Значимость |
-|-------------------------|-------------------------------------------------------|------------|
-| File&Directory Selector | Не открывает папки если в названии кириллица          | Critical   |
-| viewport.title          | Название окна нечитаемо при использовании кариллицы   | Low        |
+| Имя компонента          | Описание проблемы                                     | Значимость   |
+|-------------------------|-------------------------------------------------------|--------------|
+| File&Directory Selector | Не открывает папки если в названии кириллица          | __Критическая__   |
+| viewport.title          | Название окна нечитаемо при использовании кариллицы   | Низкая       |
 
 ***
 ```python 
