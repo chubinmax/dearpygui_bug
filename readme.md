@@ -47,11 +47,16 @@ with dpg.font_registry():
 	with dpg.font("times.ttf", 20) as default_font:
 		dpg.add_font_range_hint(dpg.mvFontRangeHint_Default)
 		dpg.add_font_range_hint(dpg.mvFontRangeHint_Cyrillic)
-		biglet = remap_big_let  # Starting number for remapped cyrillic alphabet
-		for i1 in range(big_let_start, big_let_end + 1):  # Cycle through big letters in cyrillic alphabet
-			dpg.add_char_remap(i1, biglet)  # Remap the big cyrillic letter
-			dpg.add_char_remap(i1 + alph_len, biglet + alph_len)  # Remap the small cyrillic letter
-			biglet += 1  # choose next letter
+		# Starting number for remapped cyrillic alphabet
+		biglet = remap_big_let
+		# Cycle through big letters in cyrillic alphabet
+		for i1 in range(big_let_start, big_let_end + 1):
+			# Remap the big cyrillic letter
+			dpg.add_char_remap(i1, biglet)
+			# Remap the small cyrillic letter
+			dpg.add_char_remap(i1 + alph_len, biglet + alph_len)
+			# choose next letter
+			biglet += 1
 
 # колбэки для виджета выбора файлов
 def callback(sender, app_data):
@@ -77,10 +82,12 @@ with dpg.window(label="Тест"):
 	inp1 = dpg.add_input_text(hint = 'Пробуйте ввод кириллицы в этом поле ввода',  width = 600)
 	dpg.add_spacer(height = 10)
 	dpg.add_text('Нажмите кнопку и откройте диалог выбора файлов. \
-			Попробуйте войти внутрь папки с названием "Проверка 2". Внутри находится еще одна папка\
-			с именем "Проверка путей 3". Получилось?', wrap = False, color=[128, 128, 255, 255])
+		Попробуйте войти внутрь папки с названием "Проверка 2".\
+		Внутри находится еще одна папка с именем "Проверка путей 3".\
+		Получилось?', wrap = False, color=[128, 128, 255, 255])
 	dpg.add_spacer(height = 10)
-	dpg.add_button(label = 'Открыть окно выбора', callback = openFD_callback, user_data = 'file_dialog_id')
+	dpg.add_button(label = 'Открыть окно выбора', callback = openFD_callback,\
+		user_data = 'file_dialog_id')
 	dpg.add_text(wrap = False, color=[255, 0, 0, 255], tag='RESULT')
 	dpg.add_spacer(height = 10)
 	dpg.add_text('Нажмите кнопку и задайте русское название view_port. получилось?', \
@@ -88,11 +95,13 @@ with dpg.window(label="Тест"):
 	dpg.add_spacer(height = 10)
 	with dpg.group(horizontal=True):
 		dpg.add_input_text(hint='Введите название главноего окна кириллицей', tag = 'TITLE')
-		dpg.add_button(label = 'Установить', callback = lambda: dpg.set_viewport_title(dpg.get_value('TITLE')))
+		dpg.add_button(label = 'Установить', callback = \
+			lambda: dpg.set_viewport_title(dpg.get_value('TITLE')))
 
 	f1 = dpg.add_file_dialog(show = False, label = 'Откройте папку с Русским названием', \
-		default_path = f'{current_folder}\\TestCyr', directory_selector = True, callback = callback, \
-		tag = "file_dialog_id", cancel_callback = cancel_callback, width = 700, height = 400)
+		default_path = f'{current_folder}\\TestCyr', directory_selector = True,\
+		callback = callback, tag = "file_dialog_id", cancel_callback = cancel_callback,\
+		width = 700, height = 400)
 
 dpg.focus_item(inp1)
 dpg.bind_font(default_font)
