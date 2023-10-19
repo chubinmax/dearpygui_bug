@@ -1,4 +1,4 @@
-##Known dearpygui bugs with cirillyc font and encoding
+## Known dearpygui bugs with cirillyc font and encoding
 This demo show some bugs with russian fonts in DearPyGUI framework
 times.ttf with cyrillic alphabet copied from ordinary Windows/fonts folder only for example.
 All dialogs in example file used russain language
@@ -9,7 +9,7 @@ All dialogs in example file used russain language
 | viewport.title          | AbraKadabra then title with cyrillyc symbols          | Low        |
 
 ***
-##Обнаруженные ошибки dearpygui при работе с кириллицей 
+## Обнаруженные ошибки dearpygui при работе с кириллицей 
 Этот демострационный пример показывает некоторые проблемы с русскими шрифтами и кодировкой в DearPyGUI
 шрифт times.ttf был скопирован из папки Windows/fonts для примера так как содержит русские шрифты
 Все диалоги в примере на русском
