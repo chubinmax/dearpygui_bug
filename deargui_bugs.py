@@ -35,7 +35,8 @@ def callback(sender, app_data):
 	print('OK was clicked.')
 	print("Sender: ", sender)
 	print("App Data: ", app_data)
-	dpg.set_value('RESULT', f'Результат выбора:\n{app_data.get("file_path_name")}\nЗайти внутрь папки не получилось!')
+	dpg.set_value('RESULT', f'Результат выбора:\n{app_data.get("file_path_name")}\
+			\nЗайти внутрь папки не получилось!')
 
 def cancel_callback(sender, app_data):
 	print('Cancel was clicked.')
@@ -52,18 +53,23 @@ def openFD_callback(sender, app_data, user_data):
 with dpg.window(label="Тест"):
 	inp1 = dpg.add_input_text(hint = 'Пробуйте ввод кириллицы в этом поле ввода',  width = 600)
 	dpg.add_spacer(height = 10)
-	dpg.add_text('Нажмите кнопку и откройте диалог выбора файлов. Попробуйте войти внутрь папки с названием "Проверка 2". Внутри находится еще одна папка с именем "Проверка путей 3". Получилось?', wrap = False, color=[128, 128, 255, 255])
+	dpg.add_text('Нажмите кнопку и откройте диалог выбора файлов. \
+			Попробуйте войти внутрь папки с названием "Проверка 2". Внутри находится еще одна папка\
+			с именем "Проверка путей 3". Получилось?', wrap = False, color=[128, 128, 255, 255])
 	dpg.add_spacer(height = 10)
 	dpg.add_button(label = 'Открыть окно выбора', callback = openFD_callback, user_data = 'file_dialog_id')
 	dpg.add_text(wrap = False, color=[255, 0, 0, 255], tag='RESULT')
 	dpg.add_spacer(height = 10)
-	dpg.add_text('Нажмите кнопку и задайте русское название view_port. получилось?', wrap = False, color=[128, 255, 128, 255])
+	dpg.add_text('Нажмите кнопку и задайте русское название view_port. получилось?', \
+		wrap = False, color=[128, 255, 128, 255])
 	dpg.add_spacer(height = 10)
 	with dpg.group(horizontal=True):
 		dpg.add_input_text(hint='Введите название главноего окна кириллицей', tag = 'TITLE')
 		dpg.add_button(label = 'Установить', callback = lambda: dpg.set_viewport_title(dpg.get_value('TITLE')))
 
-	f1 = dpg.add_file_dialog(show = False, label = 'Откройте папку с Русским названием', default_path = f'{current_folder}\\TestCyr', directory_selector = True, callback = callback, tag = "file_dialog_id", cancel_callback = cancel_callback, width = 700, height = 400)
+	f1 = dpg.add_file_dialog(show = False, label = 'Откройте папку с Русским названием', \
+		default_path = f'{current_folder}\\TestCyr', directory_selector = True, callback = callback, \
+		tag = "file_dialog_id", cancel_callback = cancel_callback, width = 700, height = 400)
 
 dpg.focus_item(inp1)
 dpg.bind_font(default_font)
